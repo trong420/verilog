@@ -1,1 +1,1 @@
-# test verilog cpu code
+# test verilog code
