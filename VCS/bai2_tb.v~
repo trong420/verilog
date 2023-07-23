@@ -1,0 +1,18 @@
+`timescale 1ns/10ps
+module Baitap_tb();
+reg A,B,C;
+wire Y;
+bai2 DUT(.A(A),.B(B),.C(C),.Y(Y));
+always #20 A=~A;
+always #40 B=~B;
+always #80 C=~C;
+initial begin
+$monitor("time=%5d ns,A=%b,B=%b,C=%b,Y=%b",$time,A,B,C,Y);
+A=0;B=0;C=0;
+#300 $finish;
+end
+initial begin
+$vcdplusfile("bai2.vpd");
+$vcdpluson;
+end
+endmodule

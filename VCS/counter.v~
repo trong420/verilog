@@ -1,0 +1,16 @@
+module counter.v (
+	input	clock,
+	input 	clear,
+	output	reg [1:0]	stage
+);
+
+always @ (posedge clock or posedge clear)
+	begin
+		if(clear)
+		stage<=2'b0;
+		else
+		stage<=stage+1'b1;
+		
+	end
+endmodule
+

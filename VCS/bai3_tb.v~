@@ -1,0 +1,14 @@
+`timescale 1ns/10ps
+module bai3_tb();
+wire clear,clock;
+reg [1:0]state;
+bai3 DUT(.clear(clear),.clock(clock),.state(state[1:0]));
+always #10 clock=~clock;
+initial begin
+$monitor("time=%5d ns,clock=%b,state=%b,clear=%b",$time,clock,state[1:0],clear);
+clear=1;
+clock=0;
+#20 clear=0;
+#100 $finish;
+end
+endmodule
